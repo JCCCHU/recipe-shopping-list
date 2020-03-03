@@ -4,19 +4,53 @@ var spoonSearchQuery =  + apiKey;
 var searchTerm = "beef stew";
 var encodedSearch = encodeURI(searchTerm);
 
+var recipeID = []; 
+
 var testQuery = "https://api.spoonacular.com/recipes/search?apiKey=" + apiKey + "&query=" + encodedSearch + "&number=3";
 
-console.log(testQuery);
 
 $.ajax({
   url: testQuery,
   method: "GET"
 }).then(function(response) {
   console.log(response);
+
   for (var i = 0; i < response.results.length; i++) {
-    console.log(response.results[i].title);
+  console.log(response.results[i].id);
+
+    recipeID.push (response.results[i].id);
+
+  }
+  for (var recipeIndex = 0; recipeIndex < recipeID.length; recipeIndex++){
+
+    var recipiesWithIngredients = "https://api.spoonacular.com/recipes/" + recipeID[recipeIndex] + "/information?includeNutrition=false&apiKey=" + apiKey ;
+  
+    console.log(recipiesWithIngredients);
+  
+    $.ajax({
+      url:recipiesWithIngredients,
+      method: "GET"
+    }).then(function(response) {
+  
+      console.log(response);
+  
+   })
   }
 })
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
 
 
 
