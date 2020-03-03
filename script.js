@@ -1,5 +1,24 @@
-var apikey = "c854463e2ca8424e914f5a3a511a6c29";
-var spoonSearchApi = "https://api.spoonacular.com/recipes/search";
+var apiKey = "c854463e2ca8424e914f5a3a511a6c29";
+var spoonSearchQuery =  + apiKey;
+
+var searchTerm = "beef stew";
+var encodedSearch = encodeURI(searchTerm);
+
+var testQuery = "https://api.spoonacular.com/recipes/search?apiKey=" + apiKey + "&query=" + encodedSearch + "&number=3";
+
+console.log(testQuery);
+
+$.ajax({
+  url: testQuery,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+  for (var i = 0; i < response.results.length; i++) {
+    console.log(response.results[i].title);
+  }
+})
+
+
 
 /*
 // displayMovieInfo function re-renders the HTML to display the appropriate content
