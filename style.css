@@ -114,11 +114,6 @@ h1 {
     display: block;
     position: relative;
   }
-
-  .recipe-card-thumbnail img {
-    width: 50%;
-    height: auto;
-  }
   
   .recipe-name, .recipe-name a {
     font-family: 'Cormorant Garamond', serif;
