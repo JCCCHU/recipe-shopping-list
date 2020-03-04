@@ -30,7 +30,6 @@ h1 {
       border: 0px;
   }
 
-
   /* ingredients-list dropdown table */
 
 
@@ -97,3 +96,64 @@ h1 {
   }
 }
 
+/* ------------------------------ */
+/* RECIPE CARD STYLING */
+
+.recipe-card {
+    background-color: #8bbd8b;
+    border: 1px solid #e6e6e6;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 75%;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+  }
+  
+  .recipe-card-thumbnail {
+    display: block;
+    position: relative;
+  }
+
+  .recipe-card-thumbnail img {
+    width: 50%;
+    height: auto;
+  }
+  
+  .recipe-name, .recipe-name a {
+    font-family: 'Cormorant Garamond', serif;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.45rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  
+  .recipe-source {
+    color: #000000;
+    display: block;
+    font-family: 'Open sans', sans-serif;
+    font-size: 0.85rem;
+  }
+  
+  .product-card-sale {
+    color: #cacaca;
+    display: inline-block;
+    font-size: 0.85rem;
+    margin-left: 0.3rem;
+    text-decoration: line-through;
+  }
+  
+  .recipe-card-footer-bar {
+    display: block;
+    text-align: right;
+    margin-top: 2px;
+    background-color: #ffffff;
+  }
+  
+  .product-card-color-option {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+  }
