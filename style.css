@@ -157,3 +157,48 @@ h1 {
     height: 25px;
     width: 25px;
   }
+
+  /* Shopping-List Card Styling */
+  table{
+    margin-top: 20px;
+    width: 75%;
+    table-layout: center;
+    border-color: white;
+  }
+
+  #ShoppingListHeader{
+    background-color: #8bbd8b;
+    color: #ffffff; 
+  }
+
+  form{
+    width: 75%;
+  }
+
+  .strikethrough:checked + label {
+    color:blue;
+    text-decoration: line-through;
+  }
+  
+  #addButton{
+    background-color: #384d48;
+    
+    padding: 10px;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  #removePurchasedItemsBtn{
+    background-color: #384d48;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  
