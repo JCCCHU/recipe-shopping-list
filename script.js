@@ -1,57 +1,105 @@
 var apiKey = "c854463e2ca8424e914f5a3a511a6c29";
-var spoonSearchQuery =  + apiKey;
 
-var searchTerm = "beef stew";
-var encodedSearch = encodeURI(searchTerm);
+// Will contain search results as an array of objects
+// Each object takes the form
+/*
+object {
+  id: integer,
+  title: string
+}
+*/
+var searchResults = [];
 
-var recipeID = []; 
-
-var testQuery = "https://api.spoonacular.com/recipes/search?apiKey=" + apiKey + "&query=" + encodedSearch + "&number=3";
-
-
-$.ajax({
-  url: testQuery,
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
-
-  for (var i = 0; i < response.results.length; i++) {
-  console.log(response.results[i].id);
-
-    recipeID.push (response.results[i].id);
-
-  }
-  for (var recipeIndex = 0; recipeIndex < recipeID.length; recipeIndex++){
-
-    var recipiesWithIngredients = "https://api.spoonacular.com/recipes/" + recipeID[recipeIndex] + "/information?includeNutrition=false&apiKey=" + apiKey ;
+// Recipe image URL function
+// Takes 1 argument, a 'recipe ID'
+// Outputs the URL for the corresponding image
+// https://spoonacular.com/food-api/docs#Show-Images/ 
+function recipeImage(recipeID) {
+  return ("https://spoonacular.com/recipeImages/" + recipeID + "-312x231.jpg");
   
-    console.log(recipiesWithIngredients);
+}
+
+// UNFINISHED
+// Ingredient list function
+// Takes 1 argument, an object of 'recipe info information'
+// Outputs an array with the list of 'ingredient' objects
+function ingredientList(recipeInfo) {
+
+}
+
+//
+$("#searchForm").on("submit", function(event){
+  event.preventDefault();
+  event.stopPropagation();
   
+  var encodedQuery = encodeURI($("#searchInput").val());
+  var queryURL = "https://api.spoonacular.com/recipes/search?apiKey=" + apiKey + "&query=" + encodedQuery + "&number=10";
+  searchResults = [];
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log("2"+response);
+    for (var i = 0; i < response.results.length; i++) {
+      searchResults.push(response.results[i]);
+    }
+    $("#results").empty();
+    for (var i = 0; i < searchResults.length; i++) {
+      $("#results").append("<p>Title: " + searchResults[i].title + "</p>");
+      $("#results").append("<img src=\"" + recipeImage(searchResults[i].id) + "\"><br>");
+      // Saves the recipe ID in a data attribute
+      $("#results").append("<button data-id=" + searchResults[i].id + " class=\"detailedRecipeButton\">View details</button>");
+    }
+    
+  })
+})
+
+$("#results").on("click", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  console.log(event.target);
+
+  // Detects if whats clicked had a data attribute. Currently only the "View details" button should have a data-id attribute.
+  if($(event.target).attr("data-id")) {
+
+    // Uses the data attribute of the clicked button to build the query URL
+    var queryURL = "https://api.spoonacular.com/recipes/" + $(event.target).attr("data-id") + "/information?includeNutrition=false&apiKey=" + apiKey;
+
+    console.log(queryURL);
+
     $.ajax({
-      url:recipiesWithIngredients,
+      url: queryURL, 
       method: "GET"
     }).then(function(response) {
-  
       console.log(response);
-  
-   })
+
+      // Supposed to clear the search results. Currently doesn't work
+      $("#results").remove();
+      $("#searchForm").after("<div id=\"results\"></div>");
+      $("#results").append("<p>Title: " + response.title + "</p>");
+      $("#results").append("<img src=\"" + recipeImage(response.id) + "\">");
+      $("#results").append("<p>Ingredients</p><br>");
+      for (var i = 0; i < response.extendedIngredients.length; i++) {
+        $("#results").append("<p>" + response.extendedIngredients[i].name + "</p>");
+      }
+    })
   }
+
+  
+
 })
 
 
 
-
-  
-  
-
-
-
-
-
-
-
-
-
+/*
+$.ajax({
+  url:recipiesWithIngredients,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+})
+*/
 
 
 /*
