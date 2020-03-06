@@ -30,6 +30,31 @@ h1 {
       border: 0px;
   }
 
+/* ------------------------------ */
+/* GROCERY STORE FINDER STYLING */
+
+.grocery-store-finder-header {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.postal-code-input, .radius-selector {
+  margin: 10px;
+  width: 100%;
+}
+
+.input-group-button .find-store-button {
+  text-transform: uppercase;
+  background-color: #384d48;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 0px;
+  padding: 5px;
+  margin: 10px;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
   /* ingredients-list dropdown table */
 
 
