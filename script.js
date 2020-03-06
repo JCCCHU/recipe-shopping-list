@@ -14,8 +14,8 @@ var searchResults = [];
 // Takes 1 argument, a 'recipe ID'
 // Outputs the URL for the corresponding image
 // https://spoonacular.com/food-api/docs#Show-Images/ 
-function recipeImage(recipeID) {
-  return ("https://spoonacular.com/recipeImages/" + recipeID + "-312x231.jpg");
+function recipeURL(recipeID) {
+  return ("https://spoonacular.com/recipeImages/" + recipeID + "-240x150.jpg");
   
 }
 
@@ -27,28 +27,35 @@ function ingredientList(recipeInfo) {
 
 }
 
+// Basic recipe card display function
+// Takes 1 argument, a recipe object
+// Appends a completed card to the display area
+function buildRecipeCard(recipe) {
+  var recipeTitle = recipe.title;
+  var recipeImage = recipeURL(recipe.id);
+  var recipeCard = $("<div class \"recipe-card\"></div>");
+  recipeCard.append("<div class =\"recipe-card-thumbnail\"><img src=\"" + recipeImage + "\"><h2 class=\"recipe-name\"><a href=\"#\">" + recipeTitle + "</a></h2><span class=\"recipe-source\">Recipe Source</span><div class=\"recipe-card-footer-bar\"><button href=\"#\" class=\"product-card-color-option\"><i data-id=\"" + recipe.id + "\" class=\"fas fa-info-circle\"></i></button><button href=\"#\" class=\"product-card-color-option\"><i data-id=\"" + recipe.id + "\" class=\"fas fa-plus\"></i></button></div></div>");
+  $("#recipe-display").append($(recipeCard));
+}
+
 //
-$("#searchForm").on("submit", function(event){
+$("#search-form").on("submit", function(event){
   event.preventDefault();
   event.stopPropagation();
-  
-  var encodedQuery = encodeURI($("#searchInput").val());
+  var encodedQuery = encodeURI($("#search-input").val());
   var queryURL = "https://api.spoonacular.com/recipes/search?apiKey=" + apiKey + "&query=" + encodedQuery + "&number=10";
   searchResults = [];
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log("2"+response);
     for (var i = 0; i < response.results.length; i++) {
       searchResults.push(response.results[i]);
     }
-    $("#results").empty();
+    console.log(searchResults);
+
     for (var i = 0; i < searchResults.length; i++) {
-      $("#results").append("<p>Title: " + searchResults[i].title + "</p>");
-      $("#results").append("<img src=\"" + recipeImage(searchResults[i].id) + "\"><br>");
-      // Saves the recipe ID in a data attribute
-      $("#results").append("<button data-id=" + searchResults[i].id + " class=\"detailedRecipeButton\">View details</button>");
+      buildRecipeCard(searchResults[i]);
     }
     
   })
