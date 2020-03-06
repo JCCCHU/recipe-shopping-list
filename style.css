@@ -96,6 +96,20 @@ h1 {
   }
 }
 
+  #addToListBtn{
+    background-color: #384d48;
+    padding: 10px;
+    color: white;
+    width: 75%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+
 /* ------------------------------ */
 /* RECIPE CARD STYLING */
 
@@ -182,7 +196,6 @@ h1 {
   
   #addButton{
     background-color: #384d48;
-    
     padding: 10px;
     color: white;
     width: 100%;
