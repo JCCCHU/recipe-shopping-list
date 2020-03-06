@@ -193,6 +193,7 @@ h1 {
 
   form{
     width: 75%;
+    
   }
 
   .strikethrough:checked + label {
