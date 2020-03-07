@@ -99,6 +99,21 @@ $("#results").on("click", function(event) {
 
 
 
+
+
+
+// console.log(recipeName)
+// var recipeIngedients = document.querySelector(".ingredientItem");
+// var ingedientQuantity = document.querySelector("#ingredient-quantity");
+
+
+
+
+
+
+
+
+
 /*
 $.ajax({
   url:recipiesWithIngredients,
