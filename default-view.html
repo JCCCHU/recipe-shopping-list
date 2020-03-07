@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Recipe Shopping List</title>
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -12,19 +12,21 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
+
 <!-- Compressed JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
-  </head>
+</head>
   <body>
 
     <!-- Start Top Bar -->
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu align-center">
-            <li><a href="#"><i class="fas fa-search"></i> <span>Search</span></a></li>
-            <li><a href="#"><i class="fas fa-cart-arrow-down"></i> <span>Shopping List</span></a></li>
-            <li><a href="#"><i class="fas fa-list"></i> <span>Ingredients List</span></a></li>
-            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span>Grocery Store Finder</span></a></li>
+            <li class="searchIcon"><a href="#"><i class="fas fa-search"></i></a></li>
+            <li class="ingredientsListIcon"><a href="#"><i class="fas fa-list"></i></a></li>
+            <li class="shopping-list-icon"><a href="#"><i class="fas fa-cart-arrow-down"></i></a></li>
+            <li class="grocery-store-finder-icon"><a href="#"><i class="fas fa-map-marker-alt"></i></a></li>
           </ul>
       </div>
     </div>
@@ -33,19 +35,22 @@
     <div class="callout large">
       <div class="row column text-center">
         <h1>Search Recipes</h1>
-            <div class="input-group input-group-rounded">
-                <input class="input-group-field" type="search">
-                <div class="input-group-button">
-                  <input type="submit" class="button secondary" value="Search">
+          <form id="search-form">
+                <div class="input-group input-group-rounded">
+                  <input class="input-group-field" id="search-input" type="search">
+                  <div class="input-group-button">
+                    <input type="submit" class="button secondary" id="search-button" value="Search">
+                  </div>
                 </div>
-              </div>              
+          </form>    
       </div>
     </div>
 
     <!-- We can now combine rows and columns when there's only one column in that row -->
-    <div class="row medium-8 large-7 columns">
+    <div id="recipe-display" class="row medium-8 large-7 columns">
 
-        <div class="recipe-card">
+        <!-- What the built recipe cards look like -->
+        <!-- <div class="recipe-card">
             <div class="recipe-card-thumbnail">
               <a href="#"><img src="https://placehold.it/180x180"/></a>
             </div>
@@ -56,56 +61,14 @@
               <button href="#" class="product-card-color-option"><i class="fas fa-plus"></i></button>
             </div>
           </div>
-        </div>
-
-          <div class="recipe-card">
-            <div class="recipe-card-thumbnail">
-              <a href="#"><img src="https://placehold.it/180x180"/></a>
-            </div>
-            <h2 class="recipe-name"><a href="#">Recipe Name</a></h2>
-            <span class="recipe-source">Recipe Source</span>
-            <div class="recipe-card-footer-bar">
-              <button href="#" class="product-card-color-option"><i class="fas fa-info-circle"></i></button>
-              <button href="#" class="product-card-color-option"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </div>
-      
-      
-      
-      
-
-      <div class="recipe-card">
-        <div class="recipe-card-thumbnail">
-          <a href="#"><img src="https://placehold.it/180x180"/></a>
-        </div>
-        <h2 class="recipe-name"><a href="#">Recipe Name</a></h2>
-        <span class="recipe-source">Recipe Source</span>
-        <div class="recipe-card-footer-bar">
-          <button href="#" class="product-card-color-option"><i class="fas fa-info-circle"></i></button>
-          <button href="#" class="product-card-color-option"><i class="fas fa-plus"></i></button>
-        </div>
-      </div>
-    </div>
-
-      <div class="recipe-card">
-        <div class="recipe-card-thumbnail">
-          <a href="#"><img src="https://placehold.it/180x180"/></a>
-        </div>
-        <h2 class="recipe-name"><a href="#">Recipe Name</a></h2>
-        <span class="recipe-source">Recipe Source</span>
-        <div class="recipe-card-footer-bar">
-          <button href="#" class="product-card-color-option"><i class="fas fa-info-circle"></i></button>
-          <button href="#" class="product-card-color-option"><i class="fas fa-plus"></i></button>
-        </div>
-      </div>
-    </div>
-
+        </div> -->
+       
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="ingredients-list.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
       $(document).foundation();
     </script>
+    <script src="script.js"></script>
+
   </body>
 </html>
