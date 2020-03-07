@@ -1,15 +1,26 @@
+body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(recipe-shopping-list-hero-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* ------------------------------ */
 /* TYPOGRAPHY */
 
 h1 {
     font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 /* ------------------------------ */
 /* TOP BAR AND NAVIGATION STYLING */
 
 .top-bar, .top-bar-left, .top-bar-left ul, .top-bar-left ul li a {
-    background-color: #6cae75;
+    background-color: #384d48;
     color: #ffffff; 
 }
 
@@ -29,11 +40,15 @@ h1 {
   
   .input-group-rounded .input-group-button .button {
     border-radius: 0 5000px 5000px 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: #6cae75;
   }
 
   .callout.large {
       border: 0px;
+      color: #ffffff;
+      background-color: transparent;
   }
 
 /* ------------------------------ */
@@ -145,7 +160,8 @@ h1 {
 /* RECIPE CARD STYLING */
 
 .recipe-card {
-    background-color: #8bbd8b;
+    background-color: #ffffff;
+    border: 15px solid #ffffff;
     margin: 0 auto;
     margin-bottom: 50px;
     width: 25%;
