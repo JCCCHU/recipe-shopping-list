@@ -20,12 +20,6 @@ h1 {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
   }
-
-  form#search-form {
-    width: 25%;
-    margin: 0 auto;
-    padding-top: 15px;
-  }
   
   .input-group-rounded .input-group-button .button {
     border-radius: 0 5000px 5000px 0;
@@ -132,9 +126,10 @@ h1 {
 
 .recipe-card {
     background-color: #8bbd8b;
+    border: 1px solid #e6e6e6;
     margin: 0 auto;
     margin-bottom: 50px;
-    width: 25%;
+    width: 75%;
     -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
@@ -143,11 +138,6 @@ h1 {
   .recipe-card-thumbnail {
     display: block;
     position: relative;
-  }
-
-  .recipe-card-thumbnail img {
-    width: 100%;
-    height: auto;
   }
   
   .recipe-name, .recipe-name a {
@@ -158,9 +148,6 @@ h1 {
     line-height: 1.45rem;
     margin-top: 1rem;
     margin-bottom: 0;
-    text-align: center;
-    padding: 5px;
-
   }
   
   .recipe-source {
@@ -168,9 +155,6 @@ h1 {
     display: block;
     font-family: 'Open sans', sans-serif;
     font-size: 0.85rem;
-    text-align: center;
-    padding: 5px;
-    margin-bottom: 1rem;
   }
   
   .product-card-sale {
@@ -184,7 +168,7 @@ h1 {
   .recipe-card-footer-bar {
     display: block;
     text-align: right;
-    margin: 2px 0px 0px 0px;
+    margin-top: 2px;
     background-color: #ffffff;
   }
   
@@ -193,12 +177,6 @@ h1 {
     height: 25px;
     width: 25px;
   }
-
-  @media only screen and (max-width: 768px) {
-    .recipe-card {
-      width: 90%;
-    }
-   }
 
   /* Shopping-List Card Styling */
   table{
@@ -213,7 +191,7 @@ h1 {
     color: #ffffff; 
   }
 
-  .shopping-list form{
+  form{
     width: 75%;
   }
 
