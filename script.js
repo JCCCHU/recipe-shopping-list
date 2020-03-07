@@ -91,7 +91,6 @@ $(document).on("click", ".fa-info-circle", function(event) {
 
     $(".recipe-card-footer-bar", recipeCardID).before("<div class=\"ingredients-list\"></div>");
     $(".ingredients-list", recipeCardID).append("<ul><strong>Ingredients</strong></ul>");
-    $("ul", recipeCardID).append("<li>LI Test</li>");
     for (var i = 0; i < ingredientsList.length; i++) {
       $("ul", recipeCardID).append("<li>" + ingredientsList[i].original + "</li>");
     }
