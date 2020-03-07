@@ -5,6 +5,10 @@ h1 {
     font-family: 'Cormorant Garamond', serif;
 }
 
+form {
+  margin: 0 auto;
+}
+
 /* ------------------------------ */
 /* TOP BAR AND NAVIGATION STYLING */
 
