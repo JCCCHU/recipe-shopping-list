@@ -9,6 +9,10 @@ form {
   margin: 0 auto;
 }
 
+li {
+  list-style-type: none;
+}
+
 /* ------------------------------ */
 /* TOP BAR AND NAVIGATION STYLING */
 
