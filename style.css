@@ -182,11 +182,14 @@ li {
     display: block;
     position: relative;
   }
+<<<<<<< HEAD
+=======
 
   .recipe-card-thumbnail img {
     width: 100%;
     height: auto;
   }
+>>>>>>> master
   
   .recipe-name, .recipe-name a {
     font-family: 'Cormorant Garamond', serif;
@@ -232,12 +235,15 @@ li {
     width: 25px;
   }
 
+<<<<<<< HEAD
+=======
   @media only screen and (max-width: 768px) {
     .recipe-card {
       width: 90%;
     }
    }
 
+>>>>>>> master
   /* Shopping-List Card Styling */
   table{
     margin-top: 20px;
@@ -251,7 +257,11 @@ li {
     color: #ffffff; 
   }
 
+<<<<<<< HEAD
+  form{
+=======
   .shopping-list form{
+>>>>>>> master
     width: 75%;
   }
 
@@ -262,6 +272,10 @@ li {
   
   #addButton{
     background-color: #384d48;
+<<<<<<< HEAD
+    
+=======
+>>>>>>> master
     padding: 10px;
     color: white;
     width: 100%;

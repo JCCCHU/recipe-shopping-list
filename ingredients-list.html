@@ -21,10 +21,10 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu align-center">
-            <li><a href="#"><i class="fas fa-search"></i> <span>Search</span></a></li>
-            <li><a href="#"><i class="fas fa-cart-arrow-down"></i> <span>Shopping List</span></a></li>
-            <li><a href="#"><i class="fas fa-list"></i> <span>Ingredients List</span></a></li>
-            <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span>Grocery Store Finder</span></a></li>
+          <li class="searchIcon" title="Search Recipes"><a href="default-view.html"></span><i class="fas fa-search"></i></a></li>
+          <li class="ingredientsListIcon" title="Ingredients List"><a href="ingredients-list.html"><i class="fas fa-list"></i></a></li>
+          <li class="shopping-list-icon" title="Shopping List"><a href="shopping-list.html"><i class="fas fa-cart-arrow-down"></i></a></li>
+          <li class="grocery-store-finder-icon" title="Grocery Store Finder"><a href="store-finder.html"><i class="fas fa-map-marker-alt"></i></a></li>
           </ul>
       </div>
     </div>
@@ -33,12 +33,25 @@
     <table align="center" class="table-expand">
         <thead>
           <tr class="table-expand-row">
+<<<<<<< HEAD
+            <th width="200" >Receipe</th>
+            <th class="text-left" width="10">Details</th>
+=======
             <th width="200" id=“recipeTitle”>Recipe</th>
             <th id="ingredientItem" class="text-left" width="10">Details</th>
+>>>>>>> master
           </tr>
         </thead>
-        <tbody>
+        <tbody id="recipes">
           <tr class="table-expand-row" data-open-details>
+<<<<<<< HEAD
+            <td class=“recipeTitle”>test</td>
+            <td><i class="fas fa-info-circle fa-lg"></i><span class="expand-icon"></span></td>
+          </tr>
+          <tr class="table-expand-row-content">
+            <td colspan="8" class="table-expand-row-nested ingredientItem">
+                <input id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label>
+=======
             <td></td>
             <td><i class="fas fa-info-circle fa-lg" id="recipeDetailsBtn"></i><span class="expand-icon"></span></td>
           </tr>
@@ -49,6 +62,7 @@
                 <input id="checkbox12 ingredientItem"  type="checkbox" checked><label for="checkbox12" id="checkboxBtn"></label>
                 </li>
               </ul>
+>>>>>>> master
             </td>
           </tr>
         </tbody>
@@ -62,7 +76,11 @@
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script src="script.js"></script>
     <script>
-      $(document).foundation();
+      $(document).on('ready', function(){
+
+        $(document).foundation();
+
+      })
     </script>
   </body>
 </html>
