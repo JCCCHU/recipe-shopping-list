@@ -33,28 +33,48 @@
     <table align="center" class="table-expand">
         <thead>
           <tr class="table-expand-row">
+<<<<<<< HEAD
             <th width="200" >Receipe</th>
             <th class="text-left" width="10">Details</th>
+=======
+            <th width="200" id=“recipeTitle”>Recipe</th>
+            <th id="ingredientItem" class="text-left" width="10">Details</th>
+>>>>>>> master
           </tr>
         </thead>
         <tbody id="recipes">
           <tr class="table-expand-row" data-open-details>
+<<<<<<< HEAD
             <td class=“recipeTitle”>test</td>
             <td><i class="fas fa-info-circle fa-lg"></i><span class="expand-icon"></span></td>
           </tr>
           <tr class="table-expand-row-content">
             <td colspan="8" class="table-expand-row-nested ingredientItem">
                 <input id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label>
+=======
+            <td></td>
+            <td><i class="fas fa-info-circle fa-lg" id="recipeDetailsBtn"></i><span class="expand-icon"></span></td>
+          </tr>
+          <tr class="table-expand-row-content">
+            <td colspan="8" class="table-expand-row-nested" id="">
+              <ul>
+                <li>
+                <input id="checkbox12 ingredientItem"  type="checkbox" checked><label for="checkbox12" id="checkboxBtn"></label>
+                </li>
+              </ul>
+>>>>>>> master
             </td>
           </tr>
         </tbody>
       </table>
+      <button type="button" class="float-center" id="addToListBtn">Add to list</button>
       
       
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="ingredients-list.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src="script.js"></script>
     <script>
       $(document).on('ready', function(){
 
@@ -64,3 +84,31 @@
     </script>
   </body>
 </html>
+
+
+<!-- WHEN you click the add button 
+THEN the item is added to the ingredients list
+
+WHEN the user views the ingredients view 
+THEN they see the names of the recipes they added
+
+WHEN the user clicks the plus sign 
+THEN a drop down box appears with all the ingredients clicked by default
+
+WHEN an item is unclicked
+THEN it will not be added to the shopping list
+
+WHEN the add button is clicked 
+THEN THE ingredients are added to the Shopping list
+
+WHEN the details button is clicked
+THEN the user is taken to a page to view the entire receipe-->
+
+<!-- view details in the main page 
+leverage local storage
+array of ids to pull receipes 
+another array of ingredients 
+how to the receipts list the ingredients of data 
+be careful of data decisions to not duplicate receipe items 
+write JSON object and use that to pull data 
+ -->
