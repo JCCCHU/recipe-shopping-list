@@ -24,6 +24,11 @@ h1 {
     color: #ffffff; 
 }
 
+.top-bar i {
+    padding: 0px 40px 0px 40px;
+
+}
+
 /* ------------------------------ */
 /* SEARCHBAR STYLING */
 
@@ -64,11 +69,17 @@ h1 {
   width: 100%;
 }
 
+.recipeTable{
+  border-collapse: collapse;
+  border-radius: 5px;
+  border: 0;
+  overflow: hidden;
+}
+
 .input-group-button .find-store-button {
   text-transform: uppercase;
   background-color: #384d48;
   color: #ffffff;
-  border-radius: 5px;
   border: 0px;
   padding: 5px;
   margin: 10px;
@@ -83,6 +94,7 @@ h1 {
   margin-top: 5rem;
   width: 75%;
   align-items: center !important;
+  border-radius: 5px;
 }
 
 .table-expand td {
@@ -91,6 +103,11 @@ h1 {
 
 .table-expand tr {
   border: 1px solid #e6e6e6;
+}
+
+.ingredientsHeader{
+  background-color: #6cae75;
+  color: #ffffff;
 }
 
 .table-expand .text-right {
@@ -143,7 +160,7 @@ h1 {
 }
 
   #addToListBtn{
-    background-color: #384d48;
+    background-color: #6cae75;
     padding: 10px;
     color: white;
     width: 75%;
@@ -228,6 +245,17 @@ h1 {
     .recipe-card {
       width: 90%;
     }
+
+    form#search-form {
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 15px;
+    }
+
+    .top-bar i {
+      padding: 0px;
+  
+  }
    }
 
   /* Shopping-List Card Styling */
