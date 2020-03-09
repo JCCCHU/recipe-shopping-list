@@ -258,6 +258,7 @@ li {
 
   .shopping-list form{
     width: 75%;
+    
   }
 
   .strikethrough:checked + label {
