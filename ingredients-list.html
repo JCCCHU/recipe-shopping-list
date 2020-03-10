@@ -21,10 +21,10 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu align-center">
-            <li><a href="#"><i class="fas fa-search fa-2x"></i></a></li>
-            <li><a href="#"><i class="fas fa-cart-arrow-down fa-2x"></i></a></li>
-            <li><a href="#"><i class="fas fa-list fa-2x"></i></a></li>
-            <li><a href="#"><i class="fas fa-map-marker-alt fa-2x"></i></a></li>
+          <li class="searchIcon" title="Search Recipes"><a href="default-view.html"></span><i class="fas fa-search"></i></a></li>
+          <li class="ingredientsListIcon" title="Ingredients List"><a href="ingredients-list.html"><i class="fas fa-list"></i></a></li>
+          <li class="shopping-list-icon" title="Shopping List"><a href="shopping-list.html"><i class="fas fa-cart-arrow-down"></i></a></li>
+          <li class="grocery-store-finder-icon" title="Grocery Store Finder"><a href="store-finder.html"><i class="fas fa-map-marker-alt"></i></a></li>
           </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
             <th id="ingredientItem" class="text-left" width="10">Details</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="recipes">
           <tr class="table-expand-row" data-open-details>
             <td></td>
             <td><i class="fas fa-info-circle fa-lg" id="recipeDetailsBtn"></i><span class="expand-icon"></span></td>
@@ -62,7 +62,11 @@
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script src="script.js"></script>
     <script>
-      $(document).foundation();
+      $(document).on('ready', function(){
+
+        $(document).foundation();
+
+      })
     </script>
   </body>
 </html>
