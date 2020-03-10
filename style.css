@@ -16,6 +16,19 @@ h1 {
     font-weight: bold;
 }
 
+form {
+  margin: 0 auto;
+}
+
+ul {
+  color: black;
+}
+
+li {
+  list-style-type: none;
+  color: black;
+}
+
 /* ------------------------------ */
 /* TOP BAR AND NAVIGATION STYLING */
 
