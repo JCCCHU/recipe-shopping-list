@@ -20,6 +20,10 @@
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
     integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
     crossorigin="anonymous"></script>
+
+    <!-- Map API -->
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -40,7 +44,7 @@
   <div class="callout large grocery-store-finder-header">
     <div class="row column text-center">
       <h1>Grocery Store Finder</h1>
-      <input class="postal-code-input" type="search" placeholder="Postal Code">
+      <input class="postal-code-input" type="search" placeholder="Postal Code"  id="search-input">
       <div class="input-group text-center">
           <select class="radius-selector">
             <option value="" disabled selected hidden>Radius (km)</option>
@@ -61,9 +65,12 @@
     <div class="columns large-12" class="grocery-store-finder-results">MAPS results</div>
   </div>
 
+  
+
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="ingredients-list.js"></script>
+  <script src="store-finder.js"></script>
   <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+  
   <script>
     $(document).foundation();
   </script>

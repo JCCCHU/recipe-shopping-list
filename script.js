@@ -37,7 +37,7 @@ function buildRecipeCard(recipe) {
   recipeCard.append("<div class =\"recipe-card-thumbnail\"><img src=\"" + recipeImage + "\"><h2 class=\"recipe-name\"><a href=\"#\">" + recipeTitle + "</a></h2><span class=\"recipe-source\">Recipe Source</span><div class=\"recipe-card-footer-bar\"><button href=\"#\" class=\"product-card-color-option\"><i data-id=\"" + recipe.id + "\" class=\"fas fa-info-circle\"></i></button><button href=\"#\" class=\"product-card-color-option\"><i data-tite=\"" + recipe.title + "\" data-id=\"" + recipe.id + "\" class=\"fas fa-plus\"></i></button></div></div>");
   $("#recipe-display").append($(recipeCard));
 }
-
+  
 // Search recipe functionality
 // When the form is submitted, the first 10 results are displayed as cards. 
 $("#search-form").on("submit", function(event){
