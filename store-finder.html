@@ -16,10 +16,7 @@
 
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <!-- Compressed JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
-    integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
-    crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -38,32 +35,23 @@
   <!-- End Top Bar -->
 
   <div class="callout large grocery-store-finder-header">
-    <div class="row column text-center">
+    <form class="row column text-center" id="postal-code-form">
       <h1>Grocery Store Finder</h1>
-      <input class="postal-code-input" type="search" placeholder="Postal Code">
-      <div class="input-group text-center">
-          <select class="radius-selector">
-            <option value="" disabled selected hidden>Radius (km)</option>
-            <option value="5km">5km</option>
-            <option value="10km">10km</option>
-            <option value="25km">25km</option>
-            <option value="50km">50km</option>
-          </select>
-      </div>        
-        <div class="input-group-button">
-          <input type="submit" class="find-store-button" value="Submit">
+        <div class="input-group input-group-rounded">
+          <input class="input-group-field" id="postal-code-input" type="search" placeholder="Postal Code">
+          <div class="input-group-button">
+            <button type="submit" class="button secondary" id="find-store-button">Submit</button>
+          </div>
         </div>
-      </div>
-      </div>
-    </div>
 
-  <div class="row">
-    <div class="columns large-12" class="grocery-store-finder-results">MAPS results</div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="ingredients-list.js"></script>
+  <script src="store-finder.js"></script>
   <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js"
+    integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
+    crossorigin="anonymous"></script>
   <script>
     $(document).foundation();
   </script>
