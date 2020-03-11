@@ -21,7 +21,7 @@ for (var i=0; i< data.length; i++){
   tableBody.append(tableRow)
 }
 
-$('[data-open-details]').click(function (e) {
+$('.data-open-details').click(function (e) {
   e.preventDefault();
   $(this).next().toggleClass('is-active');
   $(this).toggleClass('is-active');
