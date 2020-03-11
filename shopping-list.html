@@ -32,16 +32,15 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-                <input class="strikethrough" id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label>
-                Test
+            <td id="newIngredientItem">
+                <!-- <input class="strikethrough" id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label> -->
             </td>
           </tr>
         </tbody>
     </table>
-    <form class="float-center shopping-list">
+    <form class="float-center shopping-list addIngredient">
         <input type="search" id="addItemtoShoppingList" placeholder="add item to shopping list">
-        <button type="button" id="addButton">Add</button>
+        <button type="submit" id="addButton">Add</button>
         <button type="button" id="removePurchasedItemsBtn">Remove Purchased Items</button>
     </form>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -53,3 +52,20 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+
+
+
+
+<!-- 
+<div class="added-item">
+  <form id="todo-form" method="POST">
+    <label for="todo-text">Add to Shopping List:</label>
+    <input type="text" placeholder="Add items to your shopping list here" name="todo-text" id="todo-text" />
+  </form>
+  <p>Todo Count: <span id="todo-count">0</span></p>
+  <ul id="todo-list"></ul>
+</div> -->
+
+
+<!-- 3 issues: repeating items, onclick, checkbox -->
