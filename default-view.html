@@ -15,8 +15,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
 
-  <!-- Compressed JavaScript -->
-
 </head>
   <body>
 
@@ -25,7 +23,7 @@
       <div class="top-bar-left">
         <ul class="menu align-center">
             <li class="searchIcon" title="Search Recipes"><a href="default-view.html"></span><i class="fas fa-search"></i></a></li>
-            <li class="ingredientsListIcon" title="Ingredients List"><a href="ingredients-list.html"><i class="fas fa-list"></i></a></li>
+            <li class="ingredientsListIcon" title="Ingredients List"><a href="recipe-list.html"><i class="fas fa-list"></i></a></li>
             <li class="shopping-list-icon" title="Shopping List"><a href="shopping-list.html"><i class="fas fa-cart-arrow-down"></i></a></li>
             <li class="grocery-store-finder-icon" title="Grocery Store Finder"><a href="store-finder.html"><i class="fas fa-map-marker-alt"></i></a></li>
           </ul>
@@ -38,9 +36,9 @@
         <h1>Search Recipes</h1>
           <form id="search-form">
                 <div class="input-group input-group-rounded">
-                  <input class="input-group-field" id="search-input" type="search">
+                  <input class="input-group-field" id="search-input"  placeholder="Search Recipes" type="search">
                   <div class="input-group-button">
-                    <input type="submit" class="button secondary" id="search-button" value="Search">
+                    <button type="submit" class="button secondary" id="search-button"><i class="fas fa-search"></i></button>
                   </div>
                 </div>
           </form>    
@@ -86,9 +84,20 @@
         -->
     </div>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
   
     <!-- <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> -->
+=======
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src='default-view.js'></script>
+>>>>>>> tobis-branch
+=======
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+  
+    <!-- <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> -->
+>>>>>>> 9118bfadb8c21325df9cbd40f635748d8e219d8e
     <script>
       $(document).foundation();
     </script>

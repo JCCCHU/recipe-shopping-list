@@ -3,29 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
-
-<link rel="stylesheet" type="text/css" href="style.css">
-
-<!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
-
     <!-- Start Top Bar -->
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu align-center">
           <li class="searchIcon" title="Search Recipes"><a href="default-view.html"></span><i class="fas fa-search"></i></a></li>
-          <li class="ingredientsListIcon" title="Ingredients List"><a href="ingredients-list.html"><i class="fas fa-list"></i></a></li>
+          <li class="ingredientsListIcon" title="Ingredients List"><a href="recipe-list.html"><i class="fas fa-list"></i></a></li>
           <li class="shopping-list-icon" title="Shopping List"><a href="shopping-list.html"><i class="fas fa-cart-arrow-down"></i></a></li>
           <li class="grocery-store-finder-icon" title="Grocery Store Finder"><a href="store-finder.html"><i class="fas fa-map-marker-alt"></i></a></li>
-          </ul>
+        </ul>
       </div>
     </div>
     <!-- End Top Bar -->
@@ -38,32 +32,40 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-                <input class="strikethrough" id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label>
-                Test
+            <td id="newIngredientItem">
+                <!-- <input class="strikethrough" id="checkbox12 ingredientItem"  type="checkbox"><label for="checkbox12" id="checkboxBtn"></label> -->
             </td>
           </tr>
         </tbody>
     </table>
-    <form class="float-center shopping-list">
+    <form class="float-center shopping-list addIngredient">
         <input type="search" id="addItemtoShoppingList" placeholder="add item to shopping list">
-        <button type="button" id="addButton">Add</button>
+        <button type="submit" id="addButton">Add</button>
         <button type="button" id="removePurchasedItemsBtn">Remove Purchased Items</button>
     </form>
-    
-
-          
-          
-
-
-      
-      
-
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="shopping-list.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script> -->
     <script>
       $(document).foundation();
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
+
+
+
+
+
+<!-- 
+<div class="added-item">
+  <form id="todo-form" method="POST">
+    <label for="todo-text">Add to Shopping List:</label>
+    <input type="text" placeholder="Add items to your shopping list here" name="todo-text" id="todo-text" />
+  </form>
+  <p>Todo Count: <span id="todo-count">0</span></p>
+  <ul id="todo-list"></ul>
+</div> -->
+
+
+<!-- 3 issues: repeating items, onclick, checkbox -->
