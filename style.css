@@ -25,8 +25,10 @@ ul {
 }
 
 li {
-  list-style-type: none;
+  /* list-style-type: none; */
   color: black;
+  text-align: left;
+  padding-bottom: 2px;
 }
 
 /* ------------------------------ */
@@ -182,9 +184,9 @@ li {
     margin-top: 5px;
   }
 
-  ul{
+  /* ul{
     list-style-type: none;
-  }
+  } */
 
 /* ------------------------------ */
 /* RECIPE CARD STYLING */
@@ -288,8 +290,8 @@ li {
     width: 75%;
   }
 
-  .strikethrough:checked + label {
-    color:blue;
+  #strikethrough:checked + label {
+    color:lightslategray;
     text-decoration: line-through;
   }
   
