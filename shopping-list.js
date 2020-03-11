@@ -1,58 +1,69 @@
-// var todoInput = document.querySelector("#todo-text");
-// var todoForm = document.querySelector("#todo-form");
-// var todoList = document.querySelector("#todo-list");
-
 // our input field
 var input = document.querySelector("#addItemtoShoppingList");
 // our add button
 var addToList = document.querySelector("#addButton");
 // our new ingredient item 
 var newIngredientItem = document.querySelector("#newIngredientItem");
-
-
+var addForm = document.querySelector(".addIngredient");
+var clearAllIngredients = document.querySelector("removePurchasedItemsBtn");
 
 
 // our empty ingredient list 
 var ingredients = [];
 
-renderTodos();
-
-function renderTodos() {
-  // Clear todoList element and update todoCountSpan
-  // newIngredientItem.innerHTML = "";
-  // todoCountSpan.textContent = todos.length;
-
+function addNewIngredientItem() {
+  // Clear ingredient element
+  newIngredientItem.innerHTML = "";
   // Render a new li for each added ingredient 
   for (var i = 0; i < ingredients.length; i++) {
     var item = ingredients[i];
-
     
     var li = document.createElement("li");
+    var checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      checkbox.value = 1;
+      checkbox.name = "ingredientItem";
+      checkbox.id = "strikethrough";
+    var labelName = document.createElement('label');
+      labelName.innerHTML = item
+      linebreak = document.createElement("br");
+
+    li.setAttribute("type", "checkbox");
     li.textContent = item;
-    newIngredientItem.appendChild(li);
-  }
-}
+      newIngredientItem.appendChild(checkbox);
+      newIngredientItem.appendChild(labelName);
+      newIngredientItem.appendChild(linebreak);
+  }};
 
-// When form is submitted...
 
-document.getElementById("addButton").onclick = function() {addIngredientItem()};
 
-// addToList.addEventListener("submit", function(event) {
-//   event.preventDefault();
-
-function addIngredientItem(){
-
+// When enter or add is submitted...
+addForm.addEventListener("submit", function addIngredientItem(event){
+  event.preventDefault();
+ 
   var itemText = input.value.trim();
 
-  // Return from function early if submitted todoText is blank
+  // Return from function early if submitted ingrient is blank
   if (itemText === "") {
     return;
-  }``
+  }
 
-  // Add new todoText to todos array, clear the input
+  // Add new new ingredient item to ingredient array, clear the input
   ingredients.push(itemText);
   input.value = "";
 
   // Re-render the list
-  renderTodos();
-};
+  addNewIngredientItem();
+});
+
+// to clear all ingredients
+// clearAllIngredients.addEventListener("submit", function addIngredientItem(event){
+//   event.preventDefault();
+
+  document.getElementById("removePurchasedItemsBtn").onclick = function() {clearIngredients()};
+
+function clearIngredients (){
+  newIngredientItem.innerHTML = "";
+  ingredients = [];
+}
+

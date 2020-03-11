@@ -275,8 +275,8 @@ h1 {
     width: 75%;
   }
 
-  .strikethrough:checked + label {
-    color:blue;
+  #strikethrough:checked + label {
+    color:lightslategray;
     text-decoration: line-through;
   }
   
