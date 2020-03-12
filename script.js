@@ -1,4 +1,4 @@
-var apiKey = "fedbcf5438a04f68b4ee66fc9b5a8822";
+var apiKey = "519c975628d84b7d8c939a7fd262e9f4";
 
 // Will contain search results as an array of objects
 // Each object takes the form
@@ -219,24 +219,25 @@ $(document).on('click','#shoppingButton', function(event) {
         // Looping through the received recipe ingredients
         for (var i = 0; i < recipeEI.length; i++) {
           // Check if the current ingredient already exists
-          for (var j = 0; j < ingredientsShopping.length; j++) {
+          /*for (var j = 0; j < ingredientsShopping.length; j++) {
             // If the ingredient name matches, the ingredient's amount is converted
-            // Not functional yet...
-            
-            if (ingredientsShopping[j].name == recipeEI[i].name) {
+            // Not functional.            
+            if (ingredientsShopping[j].name == recipeEI[i].original) {
 
             }
-          }
-          ingredientsShopping.push({
+          }*/
+          ingredientsShopping.push(recipeEI[i].original);
+            /*{
             name: recipeEI[i].name,
             quantity: recipeEI[i].measures.metric.amount,
             unit: recipeEI[i].measures.metric.unitsShort,
             purchased: false
-          });
+          });*/
           console.log(i);
           console.log(recipeEI);
         }
         console.log(ingredientsShopping);
+        localStorage.setItem("shopping",JSON.stringify(ingredientsShopping));
         // Simulate an HTTP redirect:
         window.location.replace("shopping-list.html");
       })
@@ -248,6 +249,7 @@ $(document).on('click','#shoppingButton', function(event) {
       alert("Cancelling shopping");
     }
   }
-  
-
 });
+
+
+// shopping-list.html
