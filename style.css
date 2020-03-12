@@ -242,12 +242,12 @@ li {
 
 #shoppingButton{
   background-color: #6cae75;
-  padding: 10px;
-  color: white;
-  width: 75%;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 5px;
+    padding: 10px;
+    color: white;
+    width: 25%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -320,6 +320,18 @@ table tbody, table tfoot, table thead {
     border-radius: 500px;
     margin-top: 25px;
   }
+
+  @media only screen and (max-width: 768px) {
+    #removePurchasedItemsBtn{
+      width: 90%;
+    }
+   table{
+     width: 90%;
+   }
+
+   #shopping-list-form{
+    width: 90%;
+    }
   
   /* ------------------------------ */
 /* STORE FINDER STYLING */
