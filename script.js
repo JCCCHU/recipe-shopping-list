@@ -1,4 +1,4 @@
-var apiKey = "694aebd738b243909f223ed03785609c";
+var apiKey = "fedbcf5438a04f68b4ee66fc9b5a8822";
 
 // Will contain search results as an array of objects
 // Each object takes the form
@@ -16,7 +16,24 @@ var searchResults = [];
 // https://spoonacular.com/food-api/docs#Show-Images/
 function recipeURL(recipeID) {
   return ("https://spoonacular.com/recipeImages/" + recipeID + "-240x150.jpg");
-  
+}
+
+// Quantity converting function
+// Takes two arguments, amount and unit
+// Processes the amount and unit type and converts it to mL, g, or leaves it alone
+// Returns an array with the amt and unit selected
+function convert(amt,unit) {
+  switch (units) {
+    case null:
+      return [amt, "each"];
+    case "ml":
+    case "l":
+    case "tsp":
+    case "tsps":
+    case "tbsp":
+    case "tbsps":
+      break;
+  }
 }
 
 // Basic recipe card display function
@@ -30,57 +47,37 @@ function buildRecipeCard(recipe) {
   $("#recipe-display").append($(recipeCard));
 }
 
-// Recipe+ingredients display function
-// Takes 1 argument, a detailed recipe object
-// Appends the completed card to the display area
-function buildIngredientsList(recipe) {
-
-}
-
 // on page load
-
 window.onload = function(){
-  console.log(document.title);
   if (document.title == "Recipe List") {
+    console.log("Recipe List"); 
     if (localStorage.getItem("recipeList") !== null) {
       var localRecipeList = JSON.parse(localStorage.getItem("recipeList"));
-      
-      // console.log(localRecipeList);
-
       for (var i = 0; i < localRecipeList.length; i++) {
         var queryURL = "https://api.spoonacular.com/recipes/" + localRecipeList[i].id + "/information?includeNutrition=false&apiKey=" + apiKey;
-        // Records the local storage index of the corresponding recipe
         var recipeRow = $($.parseHTML('<tr class="table-expand-row data-open-details">'));
         var ingredientsTable = $($.parseHTML('<tr class="table-expand-row-content"><td colspan="8" class="table-expand-row-nested '+ localRecipeList[i].id + '">'));
         recipeRow.text(localRecipeList[i].title);
         recipeRow.append($.parseHTML('<td><i class="fas fa-info-circle RL-show-details fa-lg"></i><span class="expand-icon"></span></td>'));
-        console.log(recipeRow.html());
-        console.log(ingredientsTable.html());
         $("#recipes").append(recipeRow);
         $("#recipes").append(ingredientsTable);
-        console.log(ingredientsTable.html());
         $.ajax({
           url: queryURL,
           method: "GET"
-        }).then(function(response) {
-          
+        }).then(function(response) {          
           var recipeEI = response.extendedIngredients;
           var ingList = $("<ul>");
-          // console.log(recipeEI);
           for (var j = 0; j < recipeEI.length; j++) {
-            //$("ul", ingredientsTable).append('<li><input class="ingredientItem" type="checkbox" checked><label>'+ recipeEI[i].original +'</label></li>');
             ingList.append("<li>" + recipeEI[j].original);
           }
-          //console.log(ingList.html());
+          console.log(ingList);
           $("."+response.id).html(ingList);
-
-          // console.log("Within first then")
-          // console.log(ingredientsTable);
-          // return ingredientsTable;
         })
       }
-
     }
+  }
+
+  if (document.title == "shopping-list") {
 
   }
 }; 
@@ -187,7 +184,70 @@ $(document).on('click','.data-open-details', function (e) {
   $(this).toggleClass('is-active');
 });
 
+// Builds the shopping list from recipes present in the recipe-list.
 $(document).on('click','#shoppingButton', function(event) {
-  event.preventDefault();
   
+  event.preventDefault();
+  alert("Clicked shopping");
+  if (localStorage.getItem("recipeList") !== null) {
+    console.log("Looking through local storage")
+    var localRecipes = JSON.parse(localStorage.getItem("recipeList"));
+    console.log("Number of recipes: ",localRecipes.length);
+    // Contains an array of Ingredient objects
+    // Each object takes the form
+    /* object {
+      name,     //recipeEI[x].name
+      quantity, //recipeEI[x].measures.metric.amount
+      unit,     //recipeEI[x].measures.metric.unitsShort. Volume is turned into milliliters, mass is turned into grams
+      purchased //defaults to false
+    }
+    */
+    var ingredientsShopping = [];
+
+    // Goes through all recipes in local storage and adds ingredients to the array.
+    // As ingredients are added, the program checks if they already exist.
+    // If they already exist, adds the quantity to the existing ingredient amount
+    for (var i = 0; i < localRecipes.length; i++) {
+      var queryURL = "https://api.spoonacular.com/recipes/" + localRecipes[i].id + "/information?includeNutrition=false&apiKey=" + apiKey;
+      // API call for ingredients
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response){
+        // Contains an array of detailed ingredients
+        var recipeEI = response.extendedIngredients;
+        // Looping through the received recipe ingredients
+        for (var i = 0; i < recipeEI.length; i++) {
+          // Check if the current ingredient already exists
+          for (var j = 0; j < ingredientsShopping.length; j++) {
+            // If the ingredient name matches, the ingredient's amount is converted
+            // Not functional yet...
+            
+            if (ingredientsShopping[j].name == recipeEI[i].name) {
+
+            }
+          }
+          ingredientsShopping.push({
+            name: recipeEI[i].name,
+            quantity: recipeEI[i].measures.metric.amount,
+            unit: recipeEI[i].measures.metric.unitsShort,
+            purchased: false
+          });
+          console.log(i);
+          console.log(recipeEI);
+        }
+        console.log(ingredientsShopping);
+        // Simulate an HTTP redirect:
+        window.location.replace("shopping-list.html");
+      })
+    }
+  } else {
+    if (confirm("You haven't selected any recipes. Do you still want to go shopping?")) {
+      alert("Proceeding with shopping");
+    } else {
+      alert("Cancelling shopping");
+    }
+  }
+  
+
 });
