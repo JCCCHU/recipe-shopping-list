@@ -1,4 +1,4 @@
-var apiKey = "519c975628d84b7d8c939a7fd262e9f4";
+var apiKey = "694aebd738b243909f223ed03785609c";
 
 // Will contain search results as an array of objects
 // Each object takes the form
@@ -18,24 +18,6 @@ function recipeURL(recipeID) {
   return ("https://spoonacular.com/recipeImages/" + recipeID + "-240x150.jpg");
 }
 
-// Quantity converting function
-// Takes two arguments, amount and unit
-// Processes the amount and unit type and converts it to mL, g, or leaves it alone
-// Returns an array with the amt and unit selected
-function convert(amt,unit) {
-  switch (units) {
-    case null:
-      return [amt, "each"];
-    case "ml":
-    case "l":
-    case "tsp":
-    case "tsps":
-    case "tbsp":
-    case "tbsps":
-      break;
-  }
-}
-
 // Basic recipe card display function
 // Takes 1 argument, a basic recipe object
 // Appends a completed card to the display area
@@ -43,7 +25,7 @@ function buildRecipeCard(recipe) {
   var recipeTitle = recipe.title;
   var recipeImage = recipeURL(recipe.id);
   var recipeCard = $("<div class=\"recipe-card\" id=\"recipe-card-" + recipe.id + "\"></div>");
-  recipeCard.append("<div class =\"recipe-card-thumbnail\"><img src=\"" + recipeImage + "\"><h2 class=\"recipe-name\"><a href=\"#\">" + recipeTitle + "</a></h2><span class=\"recipe-source\">Recipe Source</span><div class=\"recipe-card-footer-bar\"><button href=\"#\" class=\"product-card-color-option\"><i data-id=\"" + recipe.id + "\" class=\"fas DV-show-details fa-info-circle\"></i></button><button href=\"#\" class=\"product-card-color-option\"><i data-title=\"" + recipe.title + "\" data-id=\"" + recipe.id + "\" class=\"fas add-recipe fa-plus\"></i></button></div></div>");
+  recipeCard.append("<div class =\"recipe-card-thumbnail\"><img src=\"" + recipeImage + "\"><h2 class=\"recipe-name\"><a href=\"#\">" + recipeTitle + "</a></h2><span class=\"recipe-source\"></span><div class=\"recipe-card-footer-bar\"><button href=\"#\" class=\"product-card-color-option\"><i data-id=\"" + recipe.id + "\" class=\"fas DV-show-details fa-info-circle\"></i></button><button href=\"#\" class=\"product-card-color-option\"><i data-title=\"" + recipe.title + "\" data-id=\"" + recipe.id + "\" class=\"fas add-recipe fa-plus\"></i></button></div></div>");
   $("#recipe-display").append($(recipeCard));
 }
 
@@ -75,10 +57,6 @@ window.onload = function(){
         })
       }
     }
-  }
-
-  if (document.title == "shopping-list") {
-
   }
 }; 
 
@@ -188,11 +166,8 @@ $(document).on('click','.data-open-details', function (e) {
 $(document).on('click','#shoppingButton', function(event) {
   
   event.preventDefault();
-  alert("Clicked shopping");
   if (localStorage.getItem("recipeList") !== null) {
-    console.log("Looking through local storage")
     var localRecipes = JSON.parse(localStorage.getItem("recipeList"));
-    console.log("Number of recipes: ",localRecipes.length);
     // Contains an array of Ingredient objects
     // Each object takes the form
     /* object {
@@ -244,9 +219,7 @@ $(document).on('click','#shoppingButton', function(event) {
     }
   } else {
     if (confirm("You haven't selected any recipes. Do you still want to go shopping?")) {
-      alert("Proceeding with shopping");
-    } else {
-      alert("Cancelling shopping");
+      window.location.replace("shopping-list.html");
     }
   }
 });
