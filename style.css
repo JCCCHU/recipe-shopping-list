@@ -244,14 +244,21 @@ li {
   background-color: #6cae75;
   padding: 10px;
   color: white;
-  width: 75%;
+  width: 50%;
   font-weight: bold;
-  border-radius: 5px;
-  margin-top: 5px;
+  border-radius: 500px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 @media only screen and (max-width: 768px) {
-  .table-expand {
+  .shopping-list, table {
+    width: 90%;
+  }
+  #removePurchasedItemsBtn {
+    width: 90%;
+  }
+  #shopping-list-form {
     width: 90%;
   }
  }
@@ -370,6 +377,7 @@ table tbody, table tfoot, table thead {
 
   .input-group {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto;    
+    margin-bottom: 20px;
   }
  }
