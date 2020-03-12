@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe List</title>
+    <!-- Font Awesome Call for the icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- Compressed CSS -->
+    <!-- Compressed Foundation CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <!-- Our own Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Google Fonts Call for Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&display=swap" rel="stylesheet">
-  
-
   </head>
   <body>
 
@@ -26,50 +27,16 @@
       </div>
     </div>
     <!-- End Top Bar -->
-    <!-- Start ingredients list -->
+    
+    <!-- Start recipe list -->
     <table align="center" class="table-expand">
-        <thead>
+        <thead class="recipe-header">
           <tr class="table-expand-row">
             <th width="200" id=“recipeTitle”>Recipe</th>
             <th id="ingredientItem" class="text-left" width="10">Details</th>
           </tr>
         </thead>
         <tbody id="recipes">
-          <!--
-          <tr class="table-expand-row" data-id="" data-title="" data-open-details>
-            <td></td>
-            <td><i class="fas fa-info-circle fa-lg ILrecipeDetailsBtn" id=""></i><span class="expand-icon"></span></td>
-          </tr>
-          <tr class="table-expand-row-content">
-            <td colspan="8" class="table-expand-row-nested">
-              <ul id="recipe-table-list">
-                
-                <li>
-                  <input class="ingredientItem"  type="checkbox" checked><label for="checkbox12" id="checkboxBtn"></label>
-                </li>
-                <li>
-                  <input id="checkbox12 ingredientItem"  type="checkbox" checked><label for="checkbox12" id="checkboxBtn"></label>
-                </li>
-              </ul>
-            </td>
-          </tr>
-          
-          <tr class="table-expand-row" data-id="" data-title="" data-open-details>
-            <td></td>
-            <td><i class="fas fa-info-circle fa-lg ILrecipeDetailsBtn" id=""></i><span class="expand-icon"></span></td>
-          </tr>
-          <tr class="table-expand-row-content">
-            <td colspan="8" class="table-expand-row-nested">
-              <ul id="recipe-table-list">
-                
-                <li>
-                  <input id="checkbox12 ingredientItem"  type="checkbox" checked><label for="checkbox12" id="checkboxBtn"></label>
-                </li>
-              
-              </ul>
-            </td>
-          </tr>
-          -->
 
         </tbody>
       </table>
