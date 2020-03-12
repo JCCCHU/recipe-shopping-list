@@ -1,4 +1,4 @@
-var apiKey = "519c975628d84b7d8c939a7fd262e9f4";
+var apiKey = "0eea93c46bab408c84f390c7811a9fe2";
 
 // Will contain search results as an array of objects
 // Each object takes the form
@@ -50,7 +50,7 @@ function buildRecipeCard(recipe) {
 // on page load
 window.onload = function(){
   if (document.title == "Recipe List") {
-    console.log("Recipe List"); 
+    // console.log("Recipe List"); 
     if (localStorage.getItem("recipeList") !== null) {
       var localRecipeList = JSON.parse(localStorage.getItem("recipeList"));
       for (var i = 0; i < localRecipeList.length; i++) {
@@ -58,7 +58,7 @@ window.onload = function(){
         var recipeRow = $($.parseHTML('<tr class="table-expand-row data-open-details">'));
         var ingredientsTable = $($.parseHTML('<tr class="table-expand-row-content"><td colspan="8" class="table-expand-row-nested '+ localRecipeList[i].id + '">'));
         recipeRow.text(localRecipeList[i].title);
-        recipeRow.append($.parseHTML('<td><i class="fas fa-info-circle RL-show-details fa-lg"></i></td><td><i class="fas fa-times-circle DV-hide-details"></i></td>'));
+        recipeRow.append($.parseHTML('<td><i class="fas fa-info-circle RL-show-details fa-lg"></i></td><td><i class="fas fa-times-circle DV-hide-details" data-id="'+ localRecipeList[i].id +'"></i></td>'));
         $("#recipes").append(recipeRow);
         $("#recipes").append(ingredientsTable);
         $.ajax({
@@ -70,7 +70,7 @@ window.onload = function(){
           for (var j = 0; j < recipeEI.length; j++) {
             ingList.append("<li>" + recipeEI[j].original);
           }
-          console.log(ingList);
+          // console.log(ingList);
           $("."+response.id).html(ingList);
         })
       }
@@ -253,3 +253,42 @@ $(document).on('click','#shoppingButton', function(event) {
 
 
 // shopping-list.html
+
+
+
+// our new ingredient item 
+var newIngredientItem = document.querySelector("#recipe-list-row");
+var clearAllIngredients = document.querySelector("#remove-recipe-button");
+// our empty ingredient list 
+var ingredients = ["test"];
+
+var tableRecipe = document.querySelector("#recipes");
+
+tableRecipe.addEventListener("click", function(e){
+  var storedRecipesIds = localStorage.getItem('recipeList');
+  var objStoredRecipes = JSON.parse(storedRecipesIds);
+  var idRecipeSelected = e.target.getAttribute('data-id');
+
+  var newRecipesList = objStoredRecipes.filter(item => item.id !== idRecipeSelected);
+  
+  var newRecipesListString = JSON.stringify(newRecipesList);
+  
+  localStorage.setItem('recipeList', newRecipesListString);
+
+  window.location.reload();
+
+
+
+
+
+
+})
+
+
+
+
+//   document.querySelector("remove-recipe-button").on ("click", clearIngredients);
+// function clearIngredients (){
+//   newIngredientItem.innerHTML = "";
+//   ingredients = [];
+// }
