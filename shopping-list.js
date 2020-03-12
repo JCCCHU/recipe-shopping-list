@@ -11,60 +11,58 @@ var clearAllIngredients = document.querySelector("removePurchasedItemsBtn");
 // our empty ingredient list 
 var ingredients = [];
 
-function addNewIngredientItem() {
-  // Clear ingredient element
-  newIngredientItem.innerHTML = "";
-  // Render a new li for each added ingredient 
-  for (var i = 0; i < ingredients.length; i++) {
-    var item = ingredients[i];
-    
-    var li = document.createElement("li");
-    var checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
-      checkbox.value = 1;
-      checkbox.name = "ingredientItem";
-      checkbox.id = "strikethrough";
-    var labelName = document.createElement('label');
-      labelName.innerHTML = item
-      linebreak = document.createElement("br");
+$(document).ready(function() {
+  renderShopping();
+})
 
-    li.setAttribute("type", "checkbox");
-    li.textContent = item;
-      newIngredientItem.appendChild(checkbox);
-      newIngredientItem.appendChild(labelName);
-      newIngredientItem.appendChild(linebreak);
-  }};
+function renderShopping() {
+  $("#newIngredientItem").html("");
+  if (localStorage.getItem("shopping") === null) {
+    $("#newIngredientItem").append("<p>There are no ingredients in the basket.</p>");
+  } else {
+    var localShopping = JSON.parse(localStorage.getItem("shopping"));
+    console.log(localShopping);
+    for (var i = 0; i < localShopping.length; i++) {
+      $("#newIngredientItem").append('<input id="strikethrough" type="checkbox" value="1" name="ingredientItem"><label>' + localShopping[i] + '</label><br>');
+    }
+  }
+}
 
 
 
 // When enter or add is submitted...
 addForm.addEventListener("submit", function addIngredientItem(event){
   event.preventDefault();
- 
+  console.log("Add form");
   var itemText = input.value.trim();
 
   // Return from function early if submitted ingrient is blank
   if (itemText === "") {
     return;
   }
+  if (localStorage.getItem("shopping") === null) {
+    localStorage.setItem("shopping",JSON.stringify([itemText]));
+  } else {
+    var localShopping = JSON.parse(localStorage.getItem("shopping"));
+    localShopping.push(itemText);
+    localStorage.setItem("shopping",JSON.stringify(localShopping));
+  }
 
-  // Add new new ingredient item to ingredient array, clear the input
-  ingredients.push(itemText);
   input.value = "";
 
   // Re-render the list
-  addNewIngredientItem();
+  renderShopping();
 });
 
 // to clear all ingredients
 // clearAllIngredients.addEventListener("submit", function addIngredientItem(event){
 //   event.preventDefault();
 
-  document.getElementById("removePurchasedItemsBtn").onclick = function() {clearIngredients()};
+document.getElementById("removePurchasedItemsBtn").onclick = function() {clearIngredients()};
 
 function clearIngredients (){
-  newIngredientItem.innerHTML = "";
-  ingredients = [];
+  localStorage.removeItem("shopping");
+  renderShopping();
 }
 
 
