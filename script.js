@@ -58,7 +58,7 @@ window.onload = function(){
         var recipeRow = $($.parseHTML('<tr class="table-expand-row data-open-details">'));
         var ingredientsTable = $($.parseHTML('<tr class="table-expand-row-content"><td colspan="8" class="table-expand-row-nested '+ localRecipeList[i].id + '">'));
         recipeRow.text(localRecipeList[i].title);
-        recipeRow.append($.parseHTML('<td><i class="fas fa-info-circle RL-show-details fa-lg"></i><span class="expand-icon"></span></td>'));
+        recipeRow.append($.parseHTML('<td><i class="fas fa-info-circle RL-show-details fa-lg"></i></td><td><i class="fas fa-times-circle DV-hide-details"></i></td>'));
         $("#recipes").append(recipeRow);
         $("#recipes").append(ingredientsTable);
         $.ajax({
