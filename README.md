@@ -1,2 +1,3 @@
-# recipe-shopping-list
-Shopping list with recipe-ingredient lookup functionality
+# ZIPPI LIST
+
+A Shopping List web-app with recipe ingredient lookup functionality.
